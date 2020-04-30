@@ -21,19 +21,19 @@
     <script>
         'use strict';
         //項目見出しの表示
-        const tr = document.createElement('tr');
-        const th = document.createElement('th');
-        th.textContent = "ID";
-        tr.appendChild(th);
+        const trHead = document.createElement('tr');
+        const thId = document.createElement('th');
+        thId.textContent = "ID";
+        trHead.appendChild(thId);
            
-        const th2 = document.createElement('th');
-        th2.textContent = "コメント";
-        tr.appendChild(th2);
+        const thCome = document.createElement('th');
+        thCome.textContent = "コメント";
+        trHead.appendChild(thCome);
            
-        const th3 = document.createElement('th');
-        th3.textContent = "状態";
-        tr.appendChild(th3);
-        document.getElementById('display').appendChild(tr);
+        const thCon = document.createElement('th');
+        thCon.textContent = "状態";
+        trHead.appendChild(thCon);
+        document.getElementById('display').appendChild(trHead);
 
         //値の取得
         const btn = document.getElementById('add-btn');
@@ -49,22 +49,22 @@
 
         //表示function
         function displayResult(index,value){
-            const tr2 = document.createElement('tr');
+            const trList = document.createElement('tr');
             //index番号の表示
             const tdIndex = document.createElement('td');
             tdIndex.textContent = index;
-            tr2.appendChild(tdIndex);
+            trList.appendChild(tdIndex);
 
             //コメントの表示
             const tdValue = document.createElement('td');
             tdValue.textContent = value;
-            tr2.appendChild(tdValue);
+            trList.appendChild(tdValue);
             
             //作業中、削除ボタンの表示
             const tdBtn = document.createElement('td');
             tdBtn.textContent = "";
-            tr2.appendChild(tdBtn);
-            document.getElementById('display').appendChild(tr2);
+            trList.appendChild(tdBtn);
+            document.getElementById('display').appendChild(trList);
             // 作業中、削除ボタンの追加
             const addCon = tdBtn.insertAdjacentHTML('beforeend','<input type="button" id="add-remove" value="作業中"><input type="button" id="add-remove" value="削除"><br>');
         };
