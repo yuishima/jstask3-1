@@ -15,26 +15,19 @@
         <input type="text" id="add-todo">
         <input type="button" id="add-btn" value="追加">
     </form>
-    <table id="display">
+    <table>
+        <thead>
+          <th>ID</th>
+          <th> コメント </th>
+          <th> 状態 </th>
+          <th></th>
+        </thead>
+        <tbody  id="display">
+        </tbody>
     </table>
 
     <script>
         'use strict';
-        //項目見出しの表示
-        const trHead = document.createElement('tr');
-        const thId = document.createElement('th');
-        thId.textContent = "ID";
-        trHead.appendChild(thId);
-           
-        const thCome = document.createElement('th');
-        thCome.textContent = "コメント";
-        trHead.appendChild(thCome);
-           
-        const thCon = document.createElement('th');
-        thCon.textContent = "状態";
-        trHead.appendChild(thCon);
-        document.getElementById('display').appendChild(trHead);
-
         //値の取得
         const btn = document.getElementById('add-btn');
         btn.addEventListener('click',displayList);
@@ -42,9 +35,12 @@
         
         //空の配列に入力値を入れていくfunction
         function displayList(){
-            todoList.push(document.getElementById("add-todo").value);
+            const todo = document.getElementById("add-todo").value;
+            const tasks = {task:todo,status:`作業中 or 完了`}
+            todoList.push(tasks);
+            console.log(tasks.task);
             document.getElementById("add-todo").value = "";
-            displayResult([todoList.length - 1],todoList[todoList.length - 1]);
+            displayResult([todoList.length - 1],tasks.task);
         };
 
         //表示function
