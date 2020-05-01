@@ -36,9 +36,8 @@
         //空の配列に入力値を入れていくfunction
         function displayList(){
             const todo = document.getElementById("add-todo").value;
-            const tasks = {task:todo,status:`作業中 or 完了`}
+            const tasks = {task:todo,status:`作業中`}
             todoList.push(tasks);
-            console.log(tasks.task);
             document.getElementById("add-todo").value = "";
             displayResult([todoList.length - 1],tasks.task);
         };
