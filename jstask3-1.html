@@ -57,12 +57,10 @@
             
             //作業中、削除ボタンの表示
             const tdBtn = document.createElement('td');
-            tdBtn.textContent = "";
+            tdBtn.innerHTML = '<input type="button" id="add-remove" value="作業中"><input type="button" id="add-remove" value="削除"><br>';
             trList.appendChild(tdBtn);
             document.getElementById('display').appendChild(trList);
-            // 作業中、削除ボタンの追加
-            const addCon = tdBtn.insertAdjacentHTML('beforeend','<input type="button" id="add-remove" value="作業中"><input type="button" id="add-remove" value="削除"><br>');
         };
     </script>
 </body>
-</html>
+</h\tml>
